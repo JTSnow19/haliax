@@ -602,13 +602,7 @@ def round_axis_for_partitioning(axis: Axis, mapping: Optional[ResourceMapping] =
         return Axis(axis.name, new_size)
 
 
-def _get_mesh() -> Mesh:
-    try:
-        from jax.interpreters.pxla import thread_resources
-    except ImportError:
-        from jax.experimental.maps import thread_resources
 
-    return thread_resources.env.physical_mesh
 
 
 def _is_jit_tracer(x) -> bool:
